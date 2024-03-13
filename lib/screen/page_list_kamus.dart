@@ -68,19 +68,23 @@ class _PageListKamusState extends State<PageListKamus> {
         title: Text('List Kamus Inggris'),
         backgroundColor: Colors.lightBlue,
         actions: [
-          Text("Hi... $username"),
-          IconButton(
-            onPressed: () {
-              setState(() {
-                session.clearSession();
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                  (route) => false,
-                );
-              });
-            },
-            icon: Icon(Icons.exit_to_app),
+          Row(
+            children: [
+              Text("Hi... $username"),
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    session.clearSession();
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                      (route) => false,
+                    );
+                  });
+                },
+                icon: Icon(Icons.exit_to_app),
+              ),
+            ],
           )
         ],
       ),
