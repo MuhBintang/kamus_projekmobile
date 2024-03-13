@@ -20,14 +20,14 @@ class PageDetailKamus extends StatelessWidget {
           ListTile(
             title: Text(data?.penyebutan ?? "", 
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),), 
-            trailing:  Icon(Icons.star, color: Colors.lightBlue,),
+            trailing:  Icon(Icons.note, color: Colors.grey,),
           ), 
           Container(
             margin: const EdgeInsets.only(right: 16, bottom: 16, left: 16),
             child: Text(
               data?.deskripsi ?? "",
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-              // textAlign: TextAlign.justify,
+              textAlign: TextAlign.justify,
             ),
           ),
         ],
