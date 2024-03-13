@@ -37,22 +37,26 @@ class Datum {
   String id;
   String kosakata;
   String deskripsi;
+  String penyebutan;
 
   Datum({
     required this.id,
     required this.kosakata,
     required this.deskripsi,
+    required this.penyebutan,
   });
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
         kosakata: json["kosakata"],
+        penyebutan: json["penyebutan"],
         deskripsi: json["deskripsi"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "kosakata": kosakata,
+        "penyebutan": penyebutan,
         "deskripsi": deskripsi,
       };
 }

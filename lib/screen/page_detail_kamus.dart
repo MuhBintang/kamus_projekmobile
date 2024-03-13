@@ -18,7 +18,7 @@ class PageDetailKamus extends StatelessWidget {
         children: [
           Padding(padding: EdgeInsets.all(10)),
           ListTile(
-            title: Text(data?.deskripsi ?? "", 
+            title: Text(data?.penyebutan ?? "", 
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),), 
             trailing:  Icon(Icons.star, color: Colors.lightBlue,),
           ), 
