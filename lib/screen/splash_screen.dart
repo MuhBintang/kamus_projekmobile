@@ -46,14 +46,18 @@ with SingleTickerProviderStateMixin{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.book,
-              size: 80,
-              color: Colors.white,  
-            ),
+            Image.asset(
+              "images/book.png",
+              height: 100,
+              ),
+            // Icon(
+            //   Icons.book,
+            //   size: 80,
+            //   color: Colors.white,  
+            // ),
             SizedBox(height: 20),
             // Text(
-            //   "Kamus", 
+            //   "Kamus Bahasa Inggris(UK)", 
             //   style: TextStyle(
             //     fontStyle: FontStyle.normal,
             //     fontWeight: FontWeight.bold, 
