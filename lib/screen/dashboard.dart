@@ -18,7 +18,7 @@ class _OnBoardingState extends State<OnBoarding> {
         headerBackgroundColor: Colors.white,
         finishButtonText: 'Register',
         finishButtonStyle: FinishButtonStyle(
-          backgroundColor: Colors.black),
+          backgroundColor: Colors.lightBlue),
           onFinish: (){
             Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => RegisterScreen()));

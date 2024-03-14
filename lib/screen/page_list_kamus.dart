@@ -64,34 +64,34 @@ class _PageListKamusState extends State<PageListKamus> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: 
+      AppBar(
         title: Text('List Kamus Inggris'),
-        // backgroundColor: Colors.lightBlue,
         actions: [
-          Row(
-            children: [
-              Text("Hi... $username"),
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    session.clearSession();
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()),
-                      (route) => false,
-                    );
-                  });
-                },
-                icon: Icon(Icons.exit_to_app),
-              ),
-            ],
-          )
+            Row(
+              children: [
+                Text("Hi... $username"),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      session.clearSession();
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        (route) => false,
+                      );
+                    });
+                  },
+                  icon: Icon(Icons.exit_to_app),
+                ),
+              ],
+            ),
         ],
       ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blue.shade200, Colors.lightBlue],
+            colors: [Colors.blue, Colors.lightBlue],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -105,45 +105,53 @@ class _PageListKamusState extends State<PageListKamus> {
               decoration: InputDecoration(
                 labelText: 'Search Keyword',
                 border: OutlineInputBorder(),
-                fillColor: Colors.white, // Menambahkan warna latar belakang putih
-                filled: true, // Menjadikan latar belakang terisi dengan warna putih
+                fillColor: Colors.white, 
+                filled: true, 
               ),
             ),
-          ),
+          ),SizedBox(height: 20),
             Expanded(
-              child: ListView.builder(
-                itemCount: _searchResult?.length ?? _kamusList?.length ?? 0,
-                itemBuilder: (context, index) {
-                  Datum? data = _searchResult?[index] ?? _kamusList?[index];
-                  return Padding(
-                    padding: EdgeInsets.all(0.2),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => PageDetailKamus(data)),
-                        );
-                      },
-                      child: Card(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ListTile(
-                              title: Text(
-                                "${data?.kosakata}",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
-                                  color: Colors.black,
+              child: 
+              Container(
+                        decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(25),
+                            topRight: Radius.circular(25))),
+                child: ListView.builder(
+                  itemCount: _searchResult?.length ?? _kamusList?.length ?? 0,
+                  itemBuilder: (context, index) {
+                    Datum? data = _searchResult?[index] ?? _kamusList?[index];
+                    return Padding(
+                      padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PageDetailKamus(data)),
+                          );
+                        },
+                        child: Card(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ListTile(
+                                title: Text(
+                                  "${data?.kosakata}",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
           ],
