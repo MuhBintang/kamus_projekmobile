@@ -88,55 +88,64 @@ class _PageListKamusState extends State<PageListKamus> {
           )
         ],
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              onChanged: _searchKamus,
-              decoration: InputDecoration(
-                labelText: 'Search Keyword',
-                border: OutlineInputBorder(),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.blue.shade200, Colors.lightBlue],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                onChanged: _searchKamus,
+                decoration: InputDecoration(
+                  labelText: 'Search Keyword',
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _searchResult?.length ?? _kamusList?.length ?? 0,
-              itemBuilder: (context, index) {
-                Datum? data = _searchResult?[index] ?? _kamusList?[index];
-                return Padding(
-                  padding: EdgeInsets.all(0.2),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => PageDetailKamus(data)),
-                      );
-                    },
-                    child: Card(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ListTile(
-                            title: Text(
-                              "${data?.kosakata}",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                color: Colors.black,
+            Expanded(
+              child: ListView.builder(
+                itemCount: _searchResult?.length ?? _kamusList?.length ?? 0,
+                itemBuilder: (context, index) {
+                  Datum? data = _searchResult?[index] ?? _kamusList?[index];
+                  return Padding(
+                    padding: EdgeInsets.all(0.2),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PageDetailKamus(data)),
+                        );
+                      },
+                      child: Card(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ListTile(
+                              title: Text(
+                                "${data?.kosakata}",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
