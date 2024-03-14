@@ -33,7 +33,7 @@ class _OnBoardingState extends State<OnBoarding> {
             }, child :Text('Login'),
           ),
           background: [
-            Image.asset('images/read.png'),
+            Image.asset('images/manread.png'),
             Image.asset('images/output.png'),
           ],
           totalPage: 2,

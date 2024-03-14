@@ -66,7 +66,7 @@ class _PageListKamusState extends State<PageListKamus> {
     return Scaffold(
       appBar: AppBar(
         title: Text('List Kamus Inggris'),
-        backgroundColor: Colors.lightBlue,
+        // backgroundColor: Colors.lightBlue,
         actions: [
           Row(
             children: [
@@ -99,15 +99,17 @@ class _PageListKamusState extends State<PageListKamus> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                onChanged: _searchKamus,
-                decoration: InputDecoration(
-                  labelText: 'Search Keyword',
-                  border: OutlineInputBorder(),
-                ),
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              onChanged: _searchKamus,
+              decoration: InputDecoration(
+                labelText: 'Search Keyword',
+                border: OutlineInputBorder(),
+                fillColor: Colors.white, // Menambahkan warna latar belakang putih
+                filled: true, // Menjadikan latar belakang terisi dengan warna putih
               ),
             ),
+          ),
             Expanded(
               child: ListView.builder(
                 itemCount: _searchResult?.length ?? _kamusList?.length ?? 0,
